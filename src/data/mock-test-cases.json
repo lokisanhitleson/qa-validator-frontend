@@ -1,0 +1,144 @@
+[
+  {
+    "id": "TC001",
+    "title": "Valid Login with Correct Credentials",
+    "description": "Verify that a user can successfully log in with valid username and password.",
+    "type": "Positive",
+    "priority": "High",
+    "status": "Ready",
+    "steps": [
+      { "step": 1, "action": "Navigate to the login page", "expectedResult": "Login form is displayed with username and password fields" },
+      { "step": 2, "action": "Enter valid username 'admin'", "expectedResult": "Username field accepts input" },
+      { "step": 3, "action": "Enter valid password 'admin123'", "expectedResult": "Password field accepts input (masked)" },
+      { "step": 4, "action": "Click the 'Sign In' button", "expectedResult": "User is redirected to the upload page" }
+    ],
+    "linkedRequirements": ["REQ001"]
+  },
+  {
+    "id": "TC002",
+    "title": "Login with Invalid Password",
+    "description": "Verify that login fails with incorrect password and shows appropriate error.",
+    "type": "Negative",
+    "priority": "High",
+    "status": "Ready",
+    "steps": [
+      { "step": 1, "action": "Navigate to the login page", "expectedResult": "Login form is displayed" },
+      { "step": 2, "action": "Enter valid username 'admin'", "expectedResult": "Username field accepts input" },
+      { "step": 3, "action": "Enter invalid password 'wrongpass'", "expectedResult": "Password field accepts input" },
+      { "step": 4, "action": "Click the 'Sign In' button", "expectedResult": "Error message 'Invalid username or password' is displayed" }
+    ],
+    "linkedRequirements": ["REQ001"]
+  },
+  {
+    "id": "TC003",
+    "title": "Login with Empty Fields",
+    "description": "Verify that login form validates empty fields before submission.",
+    "type": "Boundary",
+    "priority": "Medium",
+    "status": "Ready",
+    "steps": [
+      { "step": 1, "action": "Navigate to the login page", "expectedResult": "Login form is displayed" },
+      { "step": 2, "action": "Leave username and password fields empty", "expectedResult": "Fields remain empty" },
+      { "step": 3, "action": "Click the 'Sign In' button", "expectedResult": "Sign In button is disabled or validation error is shown" }
+    ],
+    "linkedRequirements": ["REQ001"]
+  },
+  {
+    "id": "TC004",
+    "title": "Upload Valid PDF Document",
+    "description": "Verify that a valid PDF file can be uploaded successfully.",
+    "type": "Positive",
+    "priority": "High",
+    "status": "Ready",
+    "steps": [
+      { "step": 1, "action": "Navigate to the upload page", "expectedResult": "Upload dropzone is displayed" },
+      { "step": 2, "action": "Drag and drop a valid .pdf file onto the dropzone", "expectedResult": "File appears in the file list with a green checkmark" },
+      { "step": 3, "action": "Click 'Upload & Continue'", "expectedResult": "Processing animation begins" }
+    ],
+    "linkedRequirements": ["REQ002"]
+  },
+  {
+    "id": "TC005",
+    "title": "Reject Invalid File Type",
+    "description": "Verify that uploading an unsupported file type shows an error.",
+    "type": "Negative",
+    "priority": "High",
+    "status": "Ready",
+    "steps": [
+      { "step": 1, "action": "Navigate to the upload page", "expectedResult": "Upload dropzone is displayed" },
+      { "step": 2, "action": "Drag and drop a .png image file onto the dropzone", "expectedResult": "File appears in the file list with a red error indicator" },
+      { "step": 3, "action": "Observe the 'Upload & Continue' button", "expectedResult": "Button remains disabled due to invalid file" }
+    ],
+    "linkedRequirements": ["REQ002"]
+  },
+  {
+    "id": "TC006",
+    "title": "Upload Multiple Valid Documents",
+    "description": "Verify that multiple valid files can be uploaded at once.",
+    "type": "Positive",
+    "priority": "Medium",
+    "status": "Ready",
+    "steps": [
+      { "step": 1, "action": "Navigate to the upload page", "expectedResult": "Upload dropzone is displayed" },
+      { "step": 2, "action": "Select multiple valid files (.pdf, .md, .txt)", "expectedResult": "All files appear in the file list with green checkmarks" },
+      { "step": 3, "action": "Click 'Upload & Continue'", "expectedResult": "Processing animation begins for all files" }
+    ],
+    "linkedRequirements": ["REQ002"]
+  },
+  {
+    "id": "TC007",
+    "title": "Requirements Extraction Completes Successfully",
+    "description": "Verify that the system extracts requirements from uploaded documents.",
+    "type": "Positive",
+    "priority": "High",
+    "status": "In Review",
+    "steps": [
+      { "step": 1, "action": "Upload a valid project document", "expectedResult": "Processing begins" },
+      { "step": 2, "action": "Wait for 'Extracting requirements...' stage to complete", "expectedResult": "Stage shows green checkmark" },
+      { "step": 3, "action": "Navigate to Requirements page after processing", "expectedResult": "Extracted requirements are displayed with ID, title, type, and priority" }
+    ],
+    "linkedRequirements": ["REQ003"]
+  },
+  {
+    "id": "TC008",
+    "title": "Test Case Generation from Requirements",
+    "description": "Verify that test cases are generated from extracted requirements.",
+    "type": "Positive",
+    "priority": "Medium",
+    "status": "In Review",
+    "steps": [
+      { "step": 1, "action": "Complete document upload and processing", "expectedResult": "Processing completes successfully" },
+      { "step": 2, "action": "Navigate to Test Cases page", "expectedResult": "Generated test cases are displayed" },
+      { "step": 3, "action": "Verify test case details", "expectedResult": "Each test case has ID, title, type, priority, steps, and linked requirements" }
+    ],
+    "linkedRequirements": ["REQ004"]
+  },
+  {
+    "id": "TC009",
+    "title": "Processing Completes Within Performance Threshold",
+    "description": "Verify that document processing completes within the 30-second threshold.",
+    "type": "Boundary",
+    "priority": "High",
+    "status": "Ready",
+    "steps": [
+      { "step": 1, "action": "Upload a valid document under 10MB", "expectedResult": "Processing begins" },
+      { "step": 2, "action": "Start a timer when processing begins", "expectedResult": "Timer is running" },
+      { "step": 3, "action": "Observe processing completion", "expectedResult": "All 5 stages complete within 30 seconds" }
+    ],
+    "linkedRequirements": ["REQ005"]
+  },
+  {
+    "id": "TC010",
+    "title": "Traceability Matrix Coverage Calculation",
+    "description": "Verify that the traceability matrix correctly calculates requirement coverage.",
+    "type": "Positive",
+    "priority": "Medium",
+    "status": "Draft",
+    "steps": [
+      { "step": 1, "action": "Complete document upload and processing", "expectedResult": "Processing completes successfully" },
+      { "step": 2, "action": "Navigate to Traceability page", "expectedResult": "Traceability matrix is displayed" },
+      { "step": 3, "action": "Verify coverage percentage", "expectedResult": "Coverage shows 83% (5 of 6 requirements covered)" }
+    ],
+    "linkedRequirements": ["REQ003", "REQ004"]
+  }
+]

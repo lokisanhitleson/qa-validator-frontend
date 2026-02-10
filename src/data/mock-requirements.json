@@ -1,0 +1,50 @@
+[
+  {
+    "id": "REQ001",
+    "title": "User Authentication",
+    "description": "The system shall provide secure user authentication with username and password credentials, supporting session management and automatic timeout after 30 minutes of inactivity.",
+    "type": "Functional",
+    "priority": "High",
+    "status": "Approved"
+  },
+  {
+    "id": "REQ002",
+    "title": "Document Upload",
+    "description": "The system shall allow users to upload project documents in PDF, MD, TXT, DOC, DOCX, RTF, and CSV formats with a maximum file size of 25MB per file.",
+    "type": "Functional",
+    "priority": "High",
+    "status": "Approved"
+  },
+  {
+    "id": "REQ003",
+    "title": "Requirements Extraction",
+    "description": "The system shall automatically parse uploaded documents and extract functional and non-functional requirements using AI-powered natural language processing.",
+    "type": "Functional",
+    "priority": "High",
+    "status": "Approved"
+  },
+  {
+    "id": "REQ004",
+    "title": "Test Case Generation",
+    "description": "The system shall generate test cases from extracted requirements, including positive, negative, and boundary test scenarios with detailed test steps.",
+    "type": "Functional",
+    "priority": "Medium",
+    "status": "In Review"
+  },
+  {
+    "id": "REQ005",
+    "title": "System Performance",
+    "description": "The system shall process uploaded documents and generate analysis results within 30 seconds for files up to 10MB in size, maintaining responsiveness under concurrent user load.",
+    "type": "Non-Functional",
+    "priority": "High",
+    "status": "Approved"
+  },
+  {
+    "id": "REQ006",
+    "title": "Accessibility Compliance",
+    "description": "The system shall comply with WCAG 2.1 Level AA accessibility standards, ensuring all interactive elements are keyboard navigable and screen reader compatible.",
+    "type": "Non-Functional",
+    "priority": "Medium",
+    "status": "Draft"
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "proj-1",
+    "name": "E-Commerce Platform",
+    "description": "Online shopping platform with payment integration",
+    "createdAt": "2025-12-15",
+    "status": "Active"
+  },
+  {
+    "id": "proj-2",
+    "name": "Healthcare Portal",
+    "description": "Patient management and appointment scheduling system",
+    "createdAt": "2026-01-10",
+    "status": "Active"
+  },
+  {
+    "id": "proj-3",
+    "name": "Banking Mobile App",
+    "description": "Mobile banking application with fund transfer capabilities",
+    "createdAt": "2026-02-01",
+    "status": "Draft"
+  }
+]

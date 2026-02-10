@@ -45,7 +45,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (authenticatedUser) {
       setUser(authenticatedUser);
       storeUser(authenticatedUser);
-      router.push("/dashboard");
+      router.push("/projects");
       return null;
     }
     return "Invalid username or password";
